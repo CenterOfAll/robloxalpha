@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Roblox Alpha</title>
+</head>
+<body>
+    <h1>This is a Test</h1>
+    
+    <button onclick="sendNotification()">Send Notification</button>
+
+    <script>
+        function sendNotification() {
+            // Check if the browser supports notifications
+            if ('Notification' in window) {
+                // Request permission to show notifications
+                Notification.requestPermission().then(function(permission) {
+                    if (permission === 'granted') {
+                        // Create and show the notification
+                        var notification = new Notification('Notification Title', {
+                            body: 'This is the notification body.'
+                        });
+                    }
+                });
+            } else {
+                alert('Notifications are not supported in this browser.');
+            }
+        }
+    </script>
+</body>
+</html>
